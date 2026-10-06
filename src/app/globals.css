@@ -1,26 +1,152 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --fitlog-bg: #0b0d0c;
+  --fitlog-panel: #111412;
+  --fitlog-card: #151916;
+  --fitlog-line: #27302a;
+  --fitlog-muted: #8c958f;
+  --fitlog-text: #f2f5f0;
+  --fitlog-accent: #ccff00;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--fitlog-bg);
+  color: var(--fitlog-text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--fitlog-accent);
+  color: #0b0d0c;
+}
+
+.container-fitlog {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.display-font {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.grid-noise {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(204,255,0,0.035) 0, transparent 32%),
+    radial-gradient(circle at 80% 60%, rgba(204,255,0,0.025) 0, transparent 28%),
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+}
+
+.hero-placeholder {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid #2b332d;
+  background:
+    linear-gradient(135deg, rgba(204,255,0,0.10), transparent 45%),
+    linear-gradient(155deg, #1a201b, #0e110f 75%);
+}
+
+.hero-placeholder::before {
+  content: "YOUR HERO IMAGE";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(242,245,240,0.34);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.hero-placeholder::after {
+  content: "Add your image to /public/images and replace this placeholder";
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  width: min(320px, 80%);
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border: 1px dashed rgba(204,255,0,0.22);
+  color: rgba(242,245,240,0.45);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--fitlog-line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.status-pill strong {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--fitlog-accent);
+  color: #0b0d0c;
+  font-size: 11px;
+}
+
+.status-pill.saved strong {
+  background: transparent;
+  color: var(--fitlog-text);
+  border: 1px solid #4d584f;
+}
+
+.card-hover {
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(204,255,0,0.32);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.24);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  .container-fitlog {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .hero-placeholder {
+    min-height: 280px;
+  }
 }
