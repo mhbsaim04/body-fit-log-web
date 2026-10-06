@@ -6,7 +6,7 @@ interface WorkoutDetailsPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function WorkoutDetailsPage({ params }: WorkoutDetailsPageProps) {
+const  WorkoutDetailsPage = async ({ params }: WorkoutDetailsPageProps) => {
   const { id } = await params;
   const workout = await getWorkout(id);
 
@@ -16,3 +16,5 @@ export default async function WorkoutDetailsPage({ params }: WorkoutDetailsPageP
 
   return <WorkoutDetails workout={workout} />;
 }
+
+export default WorkoutDetailsPage;

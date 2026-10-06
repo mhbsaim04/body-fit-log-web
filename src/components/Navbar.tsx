@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Dumbbell } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useFitLog } from "@/context/fitlog-context";
+import { useFitLog } from "@/context/fitlog";
 
 function BrandMark() {
   return (

@@ -5,7 +5,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { Check, Clock3, Eye, Flame, Trash2, Star } from "lucide-react";
 import { useState } from "react";
-import { useFitLog } from "@/context/fitlog-context";
+import { useFitLog } from "@/context/fitlog";
 
 export default function MyPlanClient() {
   const [tab, setTab] = useState<"plan" | "saved">("plan");

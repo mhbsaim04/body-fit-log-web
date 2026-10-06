@@ -1,5 +1,7 @@
 import MyPlanClient from "@/components/MyPlanClient";
 
-export default function MyPlanPage() {
+ const MyPlanPage = () => {
   return <MyPlanClient />;
-}
+};
+
+export default MyPlanPage;
