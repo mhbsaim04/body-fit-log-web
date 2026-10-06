@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Flame, Gauge, Layers3, Star, Timer } from "lucide-react";
-import { Workout } from "@/lib/types";
+import { Workout } from "@/shared/types";
 import DetailActions from "@/components/DetailActions";
 
 export default function WorkoutDetails({ workout }: { workout: Workout }) {

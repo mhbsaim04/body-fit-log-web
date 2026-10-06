@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Flame, Star, Timer } from "lucide-react";
-import { Workout } from "@/lib/types";
+import { Workout } from "@/shared/types";
 
 export default function WorkoutCard({ workout }: { workout: Workout }) {
   return (

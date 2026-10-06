@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import SectionIntro from "@/components/SectionIntro";
 import WorkoutCard from "@/components/WorkoutCard";
-import { Workout } from "@/lib/types";
+import { Workout } from "@/shared/types";
 
 type SortMode = "duration" | "calories" | "rating";
 

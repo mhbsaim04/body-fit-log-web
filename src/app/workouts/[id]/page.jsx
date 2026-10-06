@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import WorkoutDetails from "@/components/WorkoutDetails";
-import { getWorkout } from "@/lib/api";
+import { getWorkout } from "@/shared/api";
 
 interface WorkoutDetailsPageProps {
   params: Promise<{ id: string }>;

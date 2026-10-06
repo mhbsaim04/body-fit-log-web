@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { PlannedWorkout, Workout } from "@/lib/types";
+import { PlannedWorkout, Workout } from "@/shared/types";
 
 interface FitLogContextValue {
   plan: PlannedWorkout[];

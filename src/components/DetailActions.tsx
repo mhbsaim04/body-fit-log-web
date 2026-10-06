@@ -3,7 +3,7 @@
 import toast from "react-hot-toast";
 import { CheckCircle2, BookmarkPlus } from "lucide-react";
 import { useFitLog } from "@/context/fitlog-context";
-import { Workout } from "@/lib/types";
+import { Workout } from "@/shared/types";
 
 export default function DetailActions({ workout }: { workout: Workout }) {
   const { addToPlan, saveForLater, plan, saved } = useFitLog();
