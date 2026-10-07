@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <main className="grid min-h-[70vh] place-items-center px-6 py-16">
       <div className="max-w-lg text-center">
@@ -12,3 +12,5 @@ export default function NotFound() {
     </main>
   );
 }
+
+export default NotFound;

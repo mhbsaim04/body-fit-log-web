@@ -6,15 +6,15 @@ import { FitLogProvider } from "@/context/fitlog";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FitLog — Workout Library",
+  title: "FitLog | Workout Library",
   description: "Train with intent. Log every set.",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body>
@@ -28,3 +28,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;
