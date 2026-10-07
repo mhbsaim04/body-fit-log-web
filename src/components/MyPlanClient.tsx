@@ -65,73 +65,111 @@ const MyPlanClient = () => {
             <Link href="/#library" className="mt-6 inline-flex rounded-full bg-[#ccff00] px-6 py-3 text-xs font-black uppercase tracking-[0.12em] text-[#0b0d0c]">Go to workouts</Link>
           </div>
         ) : (
-          activeList.map((workout) => (
-            <div key={workout.id} className="rounded-[22px] border border-[#27302a] bg-[#111512] p-4 sm:p-5">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center">
-                <div className="relative h-24 w-full overflow-hidden rounded-xl border border-[#242d27] bg-[#0f130f] md:h-20 md:w-28">
-                  <Image
-                    src={workout.image}
-                    alt={workout.name}
-                    fill
-                    sizes="112px"
-                    className="object-cover"
-                  />
-                </div>
+          activeList.map((workout) => {
+  const isDone =
+    "done" in workout && workout.done === true;
 
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="display-font text-2xl uppercase leading-none text-white">{workout.name}</h2>
-                    {tab === "plan" && "done" in workout && workout.done ? (
-                      <span className="rounded-full bg-lime-300/15 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-[#ccff00]">Done</span>
-                    ) : null}
-                  </div>
-                  <p className="mt-2 truncate text-xs text-[#8b948d]">{workout.equipment}</p>
-                  <div className="mt-3 flex flex-wrap items-center gap-4 text-[11px] font-bold text-[#9aa39c]">
-                    <span className="inline-flex items-center gap-1.5"><Clock3 className="h-3.5 w-3.5 text-[#ccff00]" /> {workout.duration} min</span>
-                    <span className="inline-flex items-center gap-1.5"><Flame className="h-3.5 w-3.5 text-[#ccff00]" /> {workout.caloriesBurned} kcal</span>
-                    <span className="inline-flex items-center gap-1.5"><Star className="h-3.5 w-3.5 fill-[#ccff00] text-[#ccff00]" /> {workout.rating}</span>
-                  </div>
-                </div>
+  return (
+    <div
+      key={workout.id}
+      className="rounded-[22px] border border-[#27302a] bg-[#111512] p-4 sm:p-5"
+    >
+      <div className="flex flex-col gap-4 md:flex-row md:items-center">
+        {/* Image */}
+        <div className="relative h-24 w-full overflow-hidden rounded-xl border border-[#242d27] bg-[#0f130f] md:h-20 md:w-28">
+          <Image
+            src={workout.image}
+            alt={workout.name}
+            fill
+            sizes="112px"
+            className="object-cover"
+          />
+        </div>
 
-                <div className="flex flex-wrap gap-2 md:justify-end">
-                  <Link href={`/workouts/${workout.id}`} className="inline-flex items-center gap-2 rounded-full border border-[#334035] px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white hover:border-[#ccff00]/40">
-                    <Eye className="h-3.5 w-3.5" /> View Details
-                  </Link>
+        {/* Content */}
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="display-font text-2xl uppercase leading-none text-white">
+              {workout.name}
+            </h2>
 
-                  {tab === "plan" ? (
-                    <button
-                      onClick={() => {
-                        if ("done" in workout && !workout.done) {
-                          markAsDone(workout.id);
-                          toast.success("Workout marked as done");
-                        }
-                      }}
-                      disabled={"done" in workout && workout.done}
-                      className="inline-flex items-center gap-2 rounded-full border border-[#334035] px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40"
-                    >
-                      <Check className="h-3.5 w-3.5" /> {"done" in workout && workout.done ? "Completed" : "Mark as Done"}
-                    </button>
-                  ) : null}
+            {tab === "plan" && isDone ? (
+              <span className="rounded-full bg-lime-300/15 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-[#ccff00]">
+                Done
+              </span>
+            ) : null}
+          </div>
 
-                  <button
-                    onClick={() => {
-                      if (tab === "plan") {
-                        removeFromPlan(workout.id);
-                        toast.success("Removed from today's plan");
-                      } else {
-                        removeSaved(workout.id);
-                        toast.success("Removed from saved");
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 rounded-full border border-red-400/20 px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-red-300 hover:border-red-300/50"
-                  >
-                    <Trash2 className="h-3.5 w-3.5" /> Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
+          <p className="mt-2 truncate text-xs text-[#8b948d]">
+            {workout.equipment}
+          </p>
+
+          <div className="mt-3 flex flex-wrap items-center gap-4 text-[11px] font-bold text-[#9aa39c]">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock3 className="h-3.5 w-3.5 text-[#ccff00]" />
+              {workout.duration} min
+            </span>
+
+            <span className="inline-flex items-center gap-1.5">
+              <Flame className="h-3.5 w-3.5 text-[#ccff00]" />
+              {workout.caloriesBurned} kcal
+            </span>
+
+            <span className="inline-flex items-center gap-1.5">
+              <Star className="h-3.5 w-3.5 fill-[#ccff00] text-[#ccff00]" />
+              {workout.rating}
+            </span>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-wrap gap-2 md:justify-end">
+
+          <Link
+            href={`/workouts/${workout.id}`}
+            className="inline-flex items-center gap-2 rounded-full border border-[#334035] px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white hover:border-[#ccff00]/40"
+          >
+            <Eye className="h-3.5 w-3.5" />
+            View Details
+          </Link>
+
+          {tab === "plan" ? (
+            <button
+              onClick={() => {
+                if (!isDone) {
+                  markAsDone(workout.id);
+                  toast.success("Workout marked as done");
+                }
+              }}
+              disabled={isDone}
+              className="inline-flex items-center gap-2 rounded-full border border-[#334035] px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              <Check className="h-3.5 w-3.5" />
+              {isDone ? "Completed" : "Mark as Done"}
+            </button>
+          ) : null}
+
+          <button
+            onClick={() => {
+              if (tab === "plan") {
+                removeFromPlan(workout.id);
+                toast.success("Removed from today's plan");
+              } else {
+                removeSaved(workout.id);
+                toast.success("Removed from saved");
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-full border border-red-400/20 px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-red-300 hover:border-red-300/50"
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+            Remove
+          </button>
+
+        </div>
+      </div>
+    </div>
+  );
+})        )}
       </div>
     </main>
   );
