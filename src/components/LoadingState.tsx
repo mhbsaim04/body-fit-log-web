@@ -1,4 +1,4 @@
-export default function LoadingState({ label = "Loading workouts…" }: { label?: string }) {
+const LoadingState = ({ label = "Loading workouts…" }: { label?: string }) => {
   return (
     <div className="grid min-h-[55vh] place-items-center">
       <div className="text-center">
@@ -8,3 +8,5 @@ export default function LoadingState({ label = "Loading workouts…" }: { label?
     </div>
   );
 }
+
+export default LoadingState;

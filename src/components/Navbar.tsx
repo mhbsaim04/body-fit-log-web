@@ -19,7 +19,7 @@ function BrandMark() {
   );
 }
 
-export default function Navbar() {
+function Navbar() {
   const pathname = usePathname();
   const { planCount, savedCount } = useFitLog();
 
@@ -83,3 +83,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+export default Navbar;

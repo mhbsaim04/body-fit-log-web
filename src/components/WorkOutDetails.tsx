@@ -4,7 +4,7 @@ import { ArrowLeft, Flame, Gauge, Layers3, Star, Timer } from "lucide-react";
 import { Workout } from "@/shared/types";
 import DetailActions from "@/components/DetailActions";
 
-export default function WorkOutDetails({ workout }: { workout: Workout }) {
+function WorkOutDetails({ workout }: { workout: Workout }) {
   return (
     <main className="container-fitlog py-8 lg:py-12">
       <Link href="/#library" className="mb-7 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f9891] hover:text-white">
@@ -12,7 +12,7 @@ export default function WorkOutDetails({ workout }: { workout: Workout }) {
       </Link>
 
       <section className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr]">
-        <div className="relative min-h-[520px] overflow-hidden rounded-[28px] border border-[#27302a] bg-[#111512] lg:min-h-[690px]">
+        <div className="relative min-h-130 overflow-hidden rounded-[28px] border border-[#27302a] bg-[#111512] lg:min-h-[690px]">
           <Image
             src={workout.image}
             alt={workout.name}
@@ -82,3 +82,5 @@ export default function WorkOutDetails({ workout }: { workout: Workout }) {
     </main>
   );
 }
+
+export default WorkOutDetails;

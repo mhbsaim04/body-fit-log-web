@@ -6,7 +6,8 @@ interface SectionIntroProps {
   action?: ReactNode;
 }
 
-export default function SectionIntro({ eyebrow, title, description, action }: SectionIntroProps) {
+function SectionIntro({ eyebrow, title, description, action }: SectionIntroProps) {
+
   return (
     <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
       <div>
@@ -20,3 +21,5 @@ export default function SectionIntro({ eyebrow, title, description, action }: Se
     </div>
   );
 }
+
+export default SectionIntro;

@@ -7,7 +7,7 @@ import { Check, Clock3, Eye, Flame, Trash2, Star } from "lucide-react";
 import { useState } from "react";
 import { useFitLog } from "@/context/fitlog";
 
-export default function MyPlanClient() {
+const MyPlanClient = () => {
   const [tab, setTab] = useState<"plan" | "saved">("plan");
   const { plan, saved, totalMinutes, totalCalories, removeFromPlan, markAsDone, removeSaved, hydrated } = useFitLog();
 
@@ -59,7 +59,7 @@ export default function MyPlanClient() {
 
       <div className="mt-7 space-y-4">
         {activeList.length === 0 ? (
-          <div className="rounded-[24px] border border-dashed border-[#303a31] bg-[#111512] px-6 py-16 text-center">
+          <div className="rounded-3xl border border-dashed border-[#303a31] bg-[#111512] px-6 py-16 text-center">
             <p className="display-font text-3xl uppercase text-white">Nothing Here Yet</p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#8f9891]">Browse the library and add a lift to get today moving.</p>
             <Link href="/#library" className="mt-6 inline-flex rounded-full bg-[#ccff00] px-6 py-3 text-xs font-black uppercase tracking-[0.12em] text-[#0b0d0c]">Go to workouts</Link>
@@ -145,3 +145,5 @@ function MetricCard({ label, value }: { label: string; value: number }) {
     </div>
   );
 }
+
+export default MyPlanClient;
