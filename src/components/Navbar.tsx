@@ -1,17 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Dumbbell } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useFitLog } from "@/context/fitlog";
+import Image from "next/image";
+import logoImg from "@/app/assets/logo.png"
 
 function BrandMark() {
   return (
-    <div
-      aria-label="FitLog logo placeholder"
-      className="grid h-9 w-9 place-items-center rounded-full border border-lime-300/30 bg-lime-300/10"
-    >
-      <Dumbbell className="h-4 w-4 text-lime-300" strokeWidth={2.3} />
+    <div>
+      <Image
+        src={logoImg}
+        alt="FitLog logo"
+        width={20}
+        height={20}
+      />
     </div>
   );
 }
