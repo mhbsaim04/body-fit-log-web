@@ -1,8 +1,8 @@
 import Hero from "@/components/Hero";
-import WorkoutLibrary from "@/components/WorkoutLibrary";
+import WorkoutLibrary from "@/components/WorkOutLibrary";
 import { getWorkouts } from "@/shared/api";
 
-export default async function HomePage() {
+const HomePage = async () => {
   const workouts = await getWorkouts();
 
   return (
@@ -12,3 +12,5 @@ export default async function HomePage() {
     </main>
   );
 }
+
+export default HomePage;

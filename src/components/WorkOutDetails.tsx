@@ -4,7 +4,7 @@ import { ArrowLeft, Flame, Gauge, Layers3, Star, Timer } from "lucide-react";
 import { Workout } from "@/shared/types";
 import DetailActions from "@/components/DetailActions";
 
-export default function WorkoutDetails({ workout }: { workout: Workout }) {
+export default function WorkOutDetails({ workout }: { workout: Workout }) {
   return (
     <main className="container-fitlog py-8 lg:py-12">
       <Link href="/#library" className="mb-7 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#8f9891] hover:text-white">

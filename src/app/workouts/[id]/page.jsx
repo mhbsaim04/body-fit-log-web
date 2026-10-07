@@ -1,20 +1,16 @@
 import { notFound } from "next/navigation";
-import WorkoutDetails from "@/components/WorkoutDetails";
+import WorkoutDetails from "@/components/WorkOutDetails";
 import { getWorkout } from "@/shared/api";
 
-interface WorkoutDetailsPageProps {
-  params: Promise<{ id: string }>;
-}
+const WorkoutDetailsPage = async ({ params }) => {
+    const { id } = await params;
+    const workout = await getWorkout(id);
 
-const  WorkoutDetailsPage = async ({ params }: WorkoutDetailsPageProps) => {
-  const { id } = await params;
-  const workout = await getWorkout(id);
+    if (!workout) {
+        notFound();
+    }
 
-  if (!workout) {
-    notFound();
-  }
-
-  return <WorkoutDetails workout={workout} />;
-}
+    return <WorkoutDetails workout={workout} />;
+};
 
 export default WorkoutDetailsPage;

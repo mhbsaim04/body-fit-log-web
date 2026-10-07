@@ -5,7 +5,8 @@ import { CheckCircle2, BookmarkPlus } from "lucide-react";
 import { useFitLog } from "@/context/fitlog";
 import { Workout } from "@/shared/types";
 
-export default function DetailActions({ workout }: { workout: Workout }) {
+ const DetailActions = ({ workout }: { workout: Workout }) => {
+
   const { addToPlan, saveForLater, plan, saved } = useFitLog();
   const alreadyPlanned = plan.some((item) => item.id === workout.id);
   const alreadySaved = saved.some((item) => item.id === workout.id);
@@ -46,3 +47,5 @@ export default function DetailActions({ workout }: { workout: Workout }) {
     </div>
   );
 }
+
+export default DetailActions;
